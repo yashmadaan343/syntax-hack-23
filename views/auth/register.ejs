@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+
+<body>
+    <div class="reg-container">
+        <div class="reg-form-container">
+            <form action="/auth/register" method="post">
+                <h1>Register</h1>
+                <div class="field">
+                    <label for="email">Valid Email</label>
+                    <input type="text" name="email" id="email" placeholder="john.doe@gmail.com" required>
+                </div>
+                <div class="field">
+                    <label for="name">Username</label>
+                    <input type="text" name="name" id="name" placeholder="John_Doe" required>
+                </div>
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="14vQ!If6nWB#" required>
+                </div>
+                <div class="field">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="14vQ!If6nWB#" required>
+                </div>          
+                <div class="field">
+                    <label for="city">City</label>
+                    <input type="text" name="city" id="city" placeholder="Gurugram" required>
+                </div>
+                <div class="field">
+                    <label for="phoneno">Phone Number</label>
+                    <input type="text" name="phoneno" id="phoneno" placeholder="9591119992" required>
+                </div>
+
+                <button class="reg-submit" type="submit">Submit</button>
+                
+            </form>
+            <p>Already have an account? <a href="/auth/login">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+Losing your precious slippers at the Delhi Bangla Sahib Gurudwara is no 
+foreign concept to Sikh Delhites. The Gurudwara has decided to hire DPSI Syntax 
+to develop an app or an interface that lets you choose which locker to keep your precious 
+slippers and other footwear in during your visit. Access to the lockers is digitally 
+controlled by the app, so you also need to provide a method/mechanism to obtain your 
+slippers back after your visit is complete (you may use anything like NFC to establish this).
