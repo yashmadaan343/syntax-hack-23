@@ -5,16 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="/LoginStyles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Oleo+Script+Swash+Caps&family=Poppins:wght@500&display=swap');
+      </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat&family=Oleo+Script+Swash+Caps&family=Poppins:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <nav>
+        <label class="logo">NAME</label>
+        <ul>
+            <li><a href="/" class="link active">Home</a></li>
+            <li><a href="#" class="link">About</a></li>
+            <li><a href="#" class="link">Purchase</a></li>
+            <li><a href="/auth/login" class="link">Login</a></li>
+        </ul>
+        <!-- <div class="icon">
+            <i class="fa-solid fa-bars" id="icon"></i>
+        </div> -->
+
+    </nav>
+    
     <div class="reg-container">
         <div class="reg-form-container">
             <form action="/auth/login" method="post">
                 <h1>Login</h1>
                 <div class="field">
                     <label for="email">Email</label>
-                    <input type="text" name="email" id="email" placeholder="Email">
+                    <input type="text" name="email" id="email" placeholder="johndoe@email.com">
                 </div>
                 <div class="field">
                     <label for="password">Password</label>
