@@ -9,17 +9,7 @@ const mongoose = require('mongoose'),
 
 const passportLocalMongoose = require("passport-local-mongoose");
 
-const recentSchema = new mongoose.Schema({
-    id: reqString,
-    fabric: reqString,
-    colour: reqString,
-    age: reqString,
-    estimatedValue: {type: Number, required: true},
-    date: {
-        type:String,
-        default: dateStringWithTime
-    },
-})
+
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -36,6 +26,8 @@ const userSchema = new mongoose.Schema({
         default: dateStringWithTime
     },
     userId: reqString,
+    admin: reqBoolean,
+    lockers: []
 })
 userSchema.plugin(passportLocalMongoose)
 

@@ -16,6 +16,7 @@ var server = require('http').createServer(app);
 const landing = require('./routes/landing')
 const auth = require('./routes/auth')
 const dashboard = require('./routes/dashboard')
+const locker = require('./routes/locker')
 
 if (process.env.NODE_ENV === 'production') {
     app.enable('trust proxy');
@@ -74,7 +75,7 @@ mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true }).the
 app.use('/', landing)
 app.use('/dashboard', dashboard)
 app.use('/auth', auth)
-
+app.use('/locker', locker)
 
 
 //listen
