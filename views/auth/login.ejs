@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/LoginStyles.css">
+    <link rel="stylesheet" href="/SignUp.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Oleo+Script+Swash+Caps&family=Poppins:wght@500&display=swap');
       </style>
@@ -30,7 +30,7 @@
     </nav>
     
     <div class="reg-container">
-        <div class="reg-form-container">
+        <div class="reg-form-container" style="margin-left: 30vw;">
             <form action="/auth/login" method="post">
                 <h1>Login</h1>
                 <div class="field">
@@ -42,8 +42,9 @@
                     <input type="password" name="password" id="password" placeholder="Password">
                 </div>
                 <button type="submit" class="reg-submit">Submit</button>
+                <p>Don't have an account? <a href="/auth/register">Signup</a></p>
             </form>
-        </div>  
+        </div>  zz
         <img src="/login.svg" alt="" style="width: 30vw;">
     </div>
     
