@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins';
+    font-family: 'Outfit';
+    /* background: linear-gradient(to right,#ae8625, #f7ef8a, #d2ac47, #edc967); */
     /* background-image: url('img_girl.jpg'); */
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -9,13 +11,16 @@ body {
 }
 
 nav {
+    background-color: #002c8d;
+    height: 7.5vw;
+    color: #fff;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-ul {
+.links {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -24,18 +29,26 @@ ul {
     list-style: none;
 }
 
+.loginUl {
+    list-style-type: none;
+    margin-right: 5vw;
+}
+
 .logo {
-    margin-left: 2vw;
+    margin-left: 5vw;
     font-size: 2rem;
 }
 
 .link {
     text-decoration: none;
-    color: #000;
+    color: #fff;
     font-size: 1.5rem;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 10px;
     transition: all 0.3s ease;
 }
 
 .link:hover {
-    color: #ae8625;
+    border: 2px solid;
 }

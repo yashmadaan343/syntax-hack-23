@@ -7,11 +7,18 @@
     <link rel="stylesheet" href="/Dashboard.css">
 </head>
 <body>
-    <%- include('partials/navbar') %>
+    <nav>
+        <label class="logo">NAME</label>
+        <ul class="links">
+            <li><a href="/" class="link active">Home</a></li>
+            <li><a href="#" class="link">About</a></li>
+            <li><a href="/locker/deposit" class="link">Deposit</a></li>
+        </ul>
+        <ul class="loginUl">
+            <li><a href="/auth/logout" class="link">Logout</a></li>
+        </ul>
 
-    <div class="logout">
-        <a href="/auth/logout">Logout</a>
-    </div>
+    </nav>
 
     <div class="container">
         <div class="left">
