@@ -10,7 +10,7 @@ const { nanoid } = require("nanoid");
 const User = require('../schemas/userSchema.js');
 
 router.get('/deposit', ensureAuthenticated, (req, res)=>{
-    res.render("locker/deposit")
+    res.render("locker/deposit", {filled: "hello"})
 })
 
 router.post('/deposit/:id', ensureAuthenticated, async (req, res)=>{

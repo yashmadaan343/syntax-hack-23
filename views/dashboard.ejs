@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Syntax</title>
+    <link rel="stylesheet" href="/Dashboard.css">
 </head>
 <body>
-    sheeeeesh
+    <%- include('partials/navbar') %>
+
+    <div class="logout">
+        <a href="/auth/logout">Logout</a>
+    </div>
+
+    <div class="container">
+        <div class="left">
+            <h1>Hello <span class="special-text">User</span></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, magni.</p>
+        </div>
+        <div class="right" data-tilt data-tilt-glare data-tilt-max-glare="0.8">
+            <img class="img" data-tilt data-tilt-glare data-tilt-max-glare="0.8" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Front_view_of_Gurudwara_Bangla_Sahib%2C_Delhi.jpg/220px-Front_view_of_Gurudwara_Bangla_Sahib%2C_Delhi.jpg" >
+        </div>
+        <div class="other">
+            <div class="logout2">
+                <a>Deposit Shoes</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
 </body>
 </html>

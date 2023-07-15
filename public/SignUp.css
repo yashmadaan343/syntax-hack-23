@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins';
-    background: linear-gradient(to right,#ae8625, #f7ef8a, #d2ac47, #edc967);
+    /* background: linear-gradient(to right,#ae8625, #f7ef8a, #d2ac47, #edc967); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -126,7 +126,7 @@ form p {
 
 form p a {
     text-decoration: none;
-    color: #f7ef8a;
+    color: #ae8625;
 }
 
 .field label {
