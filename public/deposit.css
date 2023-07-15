@@ -1,0 +1,56 @@
+.heading {
+    margin-left: 2vw;
+}
+
+.container {
+    margin-top: 10vh;
+    /* background-color: red; */
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+}
+
+.locker {
+    display: flex;
+    align-items: center;
+    margin: 3vw 0;
+    width: 60%;
+    height: 15vw;
+    border-radius: 30px;
+    background-color: #D3D3D3;
+}
+
+.locker h1 {
+    margin-left: -1.5vw;
+}
+
+.status {
+    margin-left: 50%;
+}
+
+.special-text {
+    color: #ae8625;
+}
+
+.button {
+    border-radius: 5px;
+    border: 3px solid;
+    margin-top: 1vw;
+    padding: 1vw 1.5vw;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.button:hover {
+    border-radius: 10px;
+    background-color: #ae8625;
+    color: #fff;
+    border-color: #D3D3D3;
+}
+
+img {
+    width: 10vw;
+}

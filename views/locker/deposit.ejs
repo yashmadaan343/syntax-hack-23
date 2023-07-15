@@ -4,13 +4,202 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deposit</title>
+    <link rel="stylesheet" href="/deposit.css">
 </head>
 <body>
+    <!-- <% if (filled === "asbadasas") { %>
+        <h1>Hello</h1>
+    <% } %> -->
+    <%- include('../partials/navbar') %>
+    
+    <h1 class="heading">Lockers: </h1>
+    
+    <div class="container">
+        <div class="locker">
+            <img src="https://cdn.pixabay.com/photo/2018/06/20/18/06/locker-3487043_1280.png" >
+            <h1>Locker 1</h1>
+            <% if (filled) { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Filled</span></p>
+                    <div class="button"><a>Retrieve</a></div>
+                </div>
+            <% } else { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Empty</span></p>
+                    <div class="button"><a>Deposit</a></div>
+                </div>
+            <% } %>
+        </div>
+        <div class="locker">
+            <img src="https://cdn.pixabay.com/photo/2018/06/20/18/06/locker-3487043_1280.png" >
+            <h1>Locker 2</h1>
+            <% if (filled) { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Filled</span></p>
+                    <div class="button"><a>Retrieve</a></div>
+                </div>
+            <% } else { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Empty</span></p>
+                    <div class="button"><a>Deposit</a></div>
+                </div>
+            <% } %>
+        </div>
+        <div class="locker">
+            <img src="https://cdn.pixabay.com/photo/2018/06/20/18/06/locker-3487043_1280.png" >
+            <h1>Locker 3</h1>
+            <% if (filled) { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Filled</span></p>
+                    <div class="button"><a>Retrieve</a></div>
+                </div>
+            <% } else { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Empty</span></p>
+                    <div class="button"><a>Deposit</a></div>
+                </div>
+            <% } %>
+        </div>
+        <div class="locker">
+            <img src="https://cdn.pixabay.com/photo/2018/06/20/18/06/locker-3487043_1280.png" >
+            <h1>Locker 4</h1>
+            <% if (filled) { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Filled</span></p>
+                    <div class="button"><a>Retrieve</a></div>
+                </div>
+            <% } else { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Empty</span></p>
+                    <div class="button"><a>Deposit</a></div>
+                </div>
+            <% } %>
+        </div>
+        <div class="locker">
+            <img src="https://cdn.pixabay.com/photo/2018/06/20/18/06/locker-3487043_1280.png" >
+            <h1>Locker 5</h1>
+            <% if (filled) { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Filled</span></p>
+                    <div class="button"><a>Retrieve</a></div>
+                </div>
+            <% } else { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Empty</span></p>
+                    <div class="button"><a>Deposit</a></div>
+                </div>
+            <% } %>
+        </div>
+        <div class="locker">
+            <img src="https://cdn.pixabay.com/photo/2018/06/20/18/06/locker-3487043_1280.png" >
+            <h1>Locker 6</h1>
+            <% if (filled) { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Filled</span></p>
+                    <div class="button"><a>Retrieve</a></div>
+                </div>
+            <% } else { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Empty</span></p>
+                    <div class="button"><a>Deposit</a></div>
+                </div>
+            <% } %>
+        </div>
+        <div class="locker">
+            <img src="https://cdn.pixabay.com/photo/2018/06/20/18/06/locker-3487043_1280.png" >
+            <h1>Locker 7</h1>
+            <% if (filled) { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Filled</span></p>
+                    <div class="button"><a>Retrieve</a></div>
+                </div>
+            <% } else { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Empty</span></p>
+                    <div class="button"><a>Deposit</a></div>
+                </div>
+            <% } %>
+        </div>
+        <div class="locker">
+            <img src="https://cdn.pixabay.com/photo/2018/06/20/18/06/locker-3487043_1280.png" >
+            <h1>Locker 8</h1>
+            <% if (filled) { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Filled</span></p>
+                    <div class="button"><a>Retrieve</a></div>
+                </div>
+            <% } else { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Empty</span></p>
+                    <div class="button"><a>Deposit</a></div>
+                </div>
+            <% } %>
+        </div>
+        <div class="locker">
+            <img src="https://cdn.pixabay.com/photo/2018/06/20/18/06/locker-3487043_1280.png" >
+            <h1>Locker 9</h1>
+            <% if (filled) { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Filled</span></p>
+                    <div class="button"><a>Retrieve</a></div>
+                </div>
+            <% } else { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Empty</span></p>
+                    <div class="button"><a>Deposit</a></div>
+                </div>
+            <% } %>
+        </div>
+        <div class="locker">
+            <img src="https://cdn.pixabay.com/photo/2018/06/20/18/06/locker-3487043_1280.png" >
+            <h1>Locker 10</h1>
+            <% if (filled) { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Filled</span></p>
+                    <div class="button"><a>Retrieve</a></div>
+                </div>
+            <% } else { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Empty</span></p>
+                    <div class="button"><a>Deposit</a></div>
+                </div>
+            <% } %>
+        </div>
+        <div class="locker">
+            <img src="https://cdn.pixabay.com/photo/2018/06/20/18/06/locker-3487043_1280.png" >
+            <h1>Locker 11</h1>
+            <% if (filled) { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Filled</span></p>
+                    <div class="button"><a>Retrieve</a></div>
+                </div>
+            <% } else { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Empty</span></p>
+                    <div class="button"><a>Deposit</a></div>
+                </div>
+            <% } %>
+        </div>
+        <div class="locker">
+            <img src="https://cdn.pixabay.com/photo/2018/06/20/18/06/locker-3487043_1280.png" >
+            <h1>Locker 12</h1>
+            <% if (filled) { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Filled</span></p>
+                    <div class="button"><a>Retrieve</a></div>
+                </div>
+            <% } else { %>
+                <div class="status">
+                    <p>Status: <span class="special-text">Empty</span></p>
+                    <div class="button"><a>Deposit</a></div>
+                </div>
+            <% } %>
+        </div>
+        
+    </div>
+
     <form action="/locker/deposit/5" method="post">
-        <button type="submit">niga</button>
-        <% if (filled === "asbadasas") { %>
-            <h1>Hello</h1>
-        <% } %>
+        
     </form>
 </body>
 </html>
