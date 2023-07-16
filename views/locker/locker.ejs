@@ -1,0 +1,25 @@
+
+<h1> <%= locker.number %> </h1>
+
+<% if(locker.filled){%>
+
+    <h1>Locker is filled</h1>
+    <% if(filledByUser) {%>
+        <h3>Occupied by you</h3>
+        <h3>Unlock using code</h3>
+        <input type="password" name="lockerpass" id="lockerpass" placeholder="Password" class="lockerpass">
+        <button id="submit">Unlock and Retrieve</button>
+    <% } %>
+
+<% } else{ %>
+
+    <h1>Not filled</h1>
+
+<% } %>
+
+<script>
+    btn = document.getElementById("submit")
+    input = document.getElementById("lockerpass")
+    var base_url = window.location.origin;
+
+</script>

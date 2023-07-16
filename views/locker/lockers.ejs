@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit</title>
+</head>
+<style>
+    body{
+        font-family:sans-serif;
+    }
+</style>
+<body>
+    <h1>Your Lockers</h1>
+        <% lockers.forEach(locker => {%>
+                <div class="locker-card">
+                    <h1><%= locker.number %></h1>
+                    <h2><%= locker.size %></h2>
+                    <form action="/locker/retrieve/<%=locker.number%>" method="post">
+                        <h3>Enter Password sent to Registered Mobile Number</h3>
+                        <input type="password" name="otp" id="otp" placeholder="123456">
+                        <button type="submit"><h2 style="color: red;">Unlock</h2></button>
+                    </form>
+                </div>
+               <br>
+        <% }); %>
+</body>
+</html>

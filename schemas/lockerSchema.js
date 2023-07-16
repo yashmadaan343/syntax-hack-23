@@ -5,6 +5,7 @@ const mongoose = require('mongoose'),
 const lockerSchema = new mongoose.Schema({
         number: {type:Number, required: true},
         filled: {type: Boolean, required: true, default: false},
+        size: reqString,
         regUserId: String,
         regName: String, 
         phoneno: String,

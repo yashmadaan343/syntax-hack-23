@@ -1,4 +1,8 @@
 const { ensureAdminAuthenticated, ensureAuthenticated } = require('../middleware/authenticate');
+const accountSid = process.env.TWILIO_ACCOUNT_SID
+const authToken = process.env.TWILIO_AUTH_TOKEN
+const twilioPhone = process.env.TWILIO_PHONE_NUMBER
+const client = require('twilio')(accountSid, authToken);
 
 const router = require('express').Router()
 const Locker = require('../schemas/lockerSchema.js'),
@@ -9,29 +13,70 @@ const { nanoid } = require("nanoid");
     
 const User = require('../schemas/userSchema.js');
 
-router.get('/deposit', ensureAuthenticated, (req, res)=>{
-    res.render("locker/deposit", {filled: "hello"})
+router.get('/', ensureAuthenticated, async (req, res)=>{
+    let lockers = await Locker.find({regUserId: req.user.userId})
+    res.render("locker/lockers", {lockers})
 })
 
-router.post('/deposit/:id', ensureAuthenticated, async (req, res)=>{
+router.get('/deposit', async (req, res)=>{
+    res.render("locker/deposit")
+})
+
+
+
+router.post('/deposit', ensureAuthenticated, async (req, res)=>{
     let user = await User.findOne({userId: req.user.userId})
-    const lockerNum = req.params.id
-    let doc = await Locker.findOneAndUpdate({number: lockerNum}, {
-        filled: true,
-        regUserId: user.userId,
-        regName: user.name, 
-        phoneno: user.phoneno,
-        code: nanoid(),
-        regTime: dateStringWithTime
-    }, {new: true})
-    let doc2 = await User.findOneAndUpdate({userId: user.userId}, {
-        $push: { lockers: lockerNum } 
-    }, {new: true})
-    console.log(doc2)
+    const lockers = await Locker.find({size: req.body.size})
+    console.log(lockers)
+    for (let i = 0; i < lockers.length; i++) {
+        if(lockers[i].filled == false){
+                let doc = await Locker.findOneAndUpdate({number: lockers[i].number}, {
+                    filled: true,
+                    regUserId: user.userId,
+                    regName: user.name, 
+                    phoneno: user.phoneno,
+                    code: nanoid(),
+                    regTime: dateStringWithTime
+                }, {new: true})
+                let doc2 = await User.findOneAndUpdate({userId: user.userId}, {
+                    $push: { lockers: lockers[i].number } 
+                }, {new: true})
+                console.log(doc)
+                break;
+        }
+        else if(i+1 == lockers.length){
+            res.send("No Lockers Available in selected size.")
+        }
+      }
+    const phoneno = user.phoneno
+    // let doc = await Locker.findOneAndUpdate({number: lockerNum}, {
+    //     filled: true,
+    //     regUserId: user.userId,
+    //     regName: user.name, 
+    //     phoneno: user.phoneno,
+    //     code: nanoid(),
+    //     regTime: dateStringWithTime
+    // }, {new: true})
+    // let doc2 = await User.findOneAndUpdate({userId: user.userId}, {
+    //     $push: { lockers: lockerNum } 
+    // }, {new: true})
+    // console.log(doc2)
+})
+router.get('/:id', ensureAuthenticated, async (req, res)=>{
+    let lockNum = req.params.id
+    let locker = await Locker.findOne({number: lockNum})
+    let user = await User.findOne({userId: req.user.userId})
+    let filledByUser = false
+    if(!locker) res.send("Locker not found")
+    else{
+        lockNumToStr = lockNum.toString()
+        if(user.lockers.includes(lockNumToStr)) filledByUser = true 
+        res.render("locker/locker", {locker, filledByUser})
+    }
 })
 
 router.post('/retrieve/:id', async (req, res)=>{
-    let user = await User.findOne({userId: req.user.userId})
+
     const lockerNum = req.params.id
     let doc = await Locker.findOneAndUpdate({number: lockerNum}, {
         filled: false,
@@ -41,8 +86,19 @@ router.post('/retrieve/:id', async (req, res)=>{
         code: null,
         regTime: null
     }, {new: true})
-
-    console.log(doc)
+    let doc2 = await User.findOneAndUpdate({userId: req.user.userId}, {
+        $pull: { lockers: lockerNum } 
+    },{new: true}).then(()=> {
+        client.messages
+        .create({
+            body: 'test message',
+            from: twilioPhone,
+            to: req.user.phoneno
+        })
+        .then(message => console.log(message.sid));
+    
+        res.send("Payment Page here")
+    })
 })
 
 module.exports = router;
