@@ -219,3 +219,25 @@ form {
     display: flex;
     flex-direction: row;
 }
+
+#size {
+    display: none;
+}
+
+#offers {
+    display: none;
+}
+
+#donation {
+    display: none;
+}
+
+#payment {
+    display: none;
+}
+
+.sizeContainer {
+    display: flex; 
+    align-items: center; 
+    flex-direction: column;
+}
