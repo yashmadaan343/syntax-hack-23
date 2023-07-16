@@ -1,3 +1,7 @@
+body {
+    color: #fff !important;
+}
+
 .reg-container {
     margin-top: 5vh;
     display: flex;
@@ -16,7 +20,7 @@
     justify-content: center;
     align-self: center;
     /* margin-left: 25vw; */
-    background-color: rgba(0, 44, 141, 0.2);
+    background-color: rgba(0, 44, 141, 0.15);
     backdrop-filter:blur(15px);
     border-radius: 5px;
     width: 30%;
@@ -47,17 +51,25 @@ form h1 {
 }
 
 form input::placeholder {
-    color: #000;
+    color: #fff;
     opacity: 0.6;
 }
 
+label {
+    color: #fff !important;
+}
+
+h1 {
+    color: #fff !important;
+}
+
 form input {
-    color: #000;
+    color: #fff;
     margin-top: 1vw;
     /* border-radius: 15px; */
     height: 3vw;
     background-color: transparent;
-    border-bottom: solid 1px #000 !important;
+    border-bottom: solid 1px #fff !important;
     border: none;
     outline: none;
     display: flex;

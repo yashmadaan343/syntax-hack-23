@@ -37,7 +37,7 @@
     <!-- <div class="texts">
         <h1 class="heading">Pick your locker: </h1>
         <div class="links2">
-            <div class="size active">
+            <div class="size">
                 <a>Size</a>
             </div>
             <div class="offers">
@@ -53,8 +53,8 @@
     </div>
 
     <div class="container">
-        <!-- <div class="sizeContainer" style="display: flex; align-items: center; flex-direction: column;">
-            <h1 class="heading" style="font-size: 1.5rem;">Pick your locker's size:</h1>
+        <div class="sizeContainer" id="size">
+            <h1 class="heading" style="font-size: 1.5rem; margin-top: -1.5vw;">Pick your locker's size:</h1>
             <div class="size-buttons">
                 <div id="S" class="sizes"><a href="#S" class="sizeA">S</a></div>
                 <div id="M" class="sizes"><a href="#M" class="sizeA">M</a></div>
@@ -64,9 +64,9 @@
             <div class="next">
                 <a>Next</a>
             </div>
-        </div> -->
-        <!-- <div class="sizeContainer" style="display: flex; align-items: center; flex-direction: column;">
-            <h1 class="heading" style="font-size: 2rem; margin-bottom: 5vw;">Offers</h1>
+        </div>
+        <div class="sizeContainer" id="offers">
+            <h1 class="heading" style="font-size: 2rem; margin-bottom: 5vw; margin-top: -1.5vw;">Offers</h1>
             <h1 class="heading" style="font-size: 1.5rem;">Pick an offer you like: </h1>
             
             <div class="dropdown">
@@ -77,8 +77,10 @@
             </div>
             <div class="next">
                 <a>Next</a>
-            </div> -->
-            <!-- <div class="sizeContainer" style="display: flex; align-items: center; flex-direction: column;">
+            </div>
+
+        </div>
+            <div class="sizeContainer" id="donation">
                 
                 <h1 class="heading" style="font-size: 2rem; margin-bottom: 2vw; margin-top: -1.5vw;">Donations</h1>
                 <h1 class="heading quote" style="font-size: 1.5rem;">Always give without remembering and always receive without forgetting"</h1>
@@ -90,39 +92,115 @@
                 <div class="next">
                     <a>Next</a>
                 </div>
-            </div> -->
-            <!-- <div class="sizeContainer" style="display: flex; align-items: center; flex-direction: column;">
-                <h1 class="heading" style="font-size: 2rem;">Payment</h1>
+            </div>
+            <div class="sizeContainer" id="payment">
+                <h1 class="heading" style="font-size: 2rem; margin-top: -1.5vw;">Payment</h1>
                 
                 <form action="#" class="donate">
                     <div class="card">
                         <label>Card Number</label>
-                        <input class="money" type="number" placeholder="XXXX XXXX XXXX XXXX" >
+                        <input class="money" type="number" placeholder="XXXX XXXX XXXX XXXX" style="margin-bottom: 2vw;" >
+                        <label>Name</label>
+                        <input class="money" type="text" placeholder="Jon Doe" style="margin-bottom: 2vw;" >
+                        <label>Expiry</label>
+                        <input class="money" type="text" placeholder="02/06" >
                     </div>
                 </form>
                 <div class="next">
-                    <a>Next</a>
+                    <a onclick="goNext">Pay</a>
                 </div>
-            </div> --> -->
+            </div>
+        
 
- 
+        <form action="/locker/deposit/5" method="post"></form>
 
     <script>
-        // function myFunction() {
-        // document.getElementById("myDropdown").classList.toggle("show");
-        // }
-        // window.onclick = function(event) {
-        // if (!event.target.matches('.dropbtn')) {
-        //     var dropdowns = document.getElementsByClassName("dropdown-content");
-        //     var i;
-        //     for (i = 0; i < dropdowns.length; i++) {
-        //     var openDropdown = dropdowns[i];
-        //     if (openDropdown.classList.contains('show')) {
-        //         openDropdown.classList.remove('show');
-        //     }
-        //     }
-        // }
-        // }
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        const sizeLink = document.querySelector('.size');
+        const sizeContainer = document.getElementById('size');
+        
+        const offerLink = document.querySelector('.offers');
+        const offerContainer = document.getElementById('offers');
+
+        const donationLink = document.querySelector('.donation');
+        const donationContainer = document.getElementById('donation');
+        
+        const paymentLink = document.querySelector('.payment');
+        const paymentConatainer = document.getElementById('payment');
+
+        sizeLink.addEventListener('click', size)
+        function size(){
+            sizeContainer.style.display = "flex";
+            offerContainer.style.display = "none";
+            paymentConatainer.style.display = "none";
+            donationContainer.style.display = "none";
+            
+            sizeLink.classList.add("active");
+            offerLink.classList.remove("active");
+            donationLink.classList.remove("active");
+            paymentLink.classList.remove("active");
+        };
+
+        offerLink.addEventListener('click', offer)
+        function offer (){
+            offerContainer.style.display = "flex";
+            sizeContainer.style.display = "none";
+            paymentConatainer.style.display = "none";
+            donationContainer.style.display = "none";
+
+            offerLink.classList.add("active");
+            sizeLink.classList.remove("active");
+            donationLink.classList.remove("active");
+            paymentLink.classList.remove("active");
+        };
+
+        donationLink.addEventListener('click', donation)
+        function donation () {
+            donationContainer.style.display = "flex";
+            offerContainer.style.display = "none";
+            paymentConatainer.style.display = "none";
+            sizeContainer.style.display = "none";
+
+            donationLink.classList.add("active");
+            offerLink.classList.remove("active");
+            sizeLink.classList.remove("active");
+            paymentLink.classList.remove("active");
+        };
+
+        paymentLink.addEventListener('click',payment)
+        function payment () {
+            paymentConatainer.style.display = "flex";
+            offerContainer.style.display = "none";
+            sizeContainer.style.display = "none";
+            donationContainer.style.display = "none";
+
+            paymentLink.classList.add("active");
+            offerLink.classList.remove("active");
+            sizeLink.classList.remove("active");
+            donationLink.classList.remove("active");
+        };
+
+
+        const nextButton = document.getElementsByClassName('next');
+
+        nextButton.addEventListener('click', goNext)
+
+        function goNext() {
+            if (sizeLink.classList.contains('active')) {
+                offer()
+            }
+            if (offerLink.classList.contains('active')) {
+                donation()
+            }
+            if (donationLink.classList.contains('active')) {
+                payment()
+            }
+            
+        }
+
     </script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
 body {
     height: 110vh;
+    color: #fff;
 }
 
 /* background: linear-gradient(to right,#ae8625, #f7ef8a, #d2ac47, #edc967); */
@@ -43,16 +44,16 @@ img {
 }
 
 .special-text {
-    color: #002c8d;
+    color: #ffda93;
 }
 
 .other {
     display: flex;
     /* width: 100%; */
     z-index: 100;
-    margin-top: 5vw;
+    margin-top: 0vw;
     position: absolute;
-    bottom: 0;
+    bottom: 5vw;
     align-self: center;
     left: 45%;
     margin-bottom: 1vw;
@@ -61,7 +62,7 @@ img {
 .logout2 {
     border-radius: 5px;
     border: 3px solid;
-    margin-top: 3vw;
+    margin-top: 1vw;
     padding: 1vw 1.5vw;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
@@ -74,7 +75,7 @@ img {
 
 a {
     text-decoration: none;
-    color: #000;
+    color: #fff;
     transition: all 0.5s ease-in-out;
 }
 
@@ -84,25 +85,30 @@ a:hover {
 
 /* Navbar */
 
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
 body {
-    margin: 0;
-    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-family: 'Outfit';
-    /* background: linear-gradient(to right,#ae8625, #f7ef8a, #d2ac47, #edc967); */
-    /* background-image: url('img_girl.jpg'); */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+    background: 50%/contain url("https://www.halo-lab.com/cdn-cgi/image/anim=true,dpr=1,format=auto,quality=85/cloudflare-images/universe.f742a005ecd.png?66d5e0a3733") #02021e;
+    font-size: max(16px,.9rem);
+    font-weight: 300;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 0;
+    position: relative;
+    
 }
 
 nav {
-    background-color: #002c8d;
     height: 7.5vw;
     color: #fff;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #fff;
 }
 
 .links {
@@ -112,6 +118,30 @@ nav {
     gap: 3rem;
     margin-right: 2vw;
     list-style: none;
+}
+
+.loginUl {
+    list-style-type: none;
+    margin-right: 5vw;
+}
+
+.logo {
+    margin-left: 5vw;
+    font-size: 2rem;
+}
+
+.link {
+    text-decoration: none;
+    color: hsla(0,0%,100%,.6) !important;
+    font-size: 1.5rem;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.link:hover {
+    border: 2px solid;
 }
 
 .loginUl {
