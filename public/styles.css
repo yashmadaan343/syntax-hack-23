@@ -69,7 +69,7 @@ nav {
 }
 
 .landing {
-    font-size: 3em;
+    font-size: 2em;
     text-align: center;
 }
 
@@ -81,14 +81,18 @@ nav {
     background: linear-gradient(156.8deg,#fff 15%,#79b0e8 75.42%);
     border-radius: 50%;
     /* background: linear-gradient(37.94deg,rgba(16,8,74,0) 16.94%,#83a4ff 87.08%),#02021e; */
-    width: 6vw;
-    height: 6vw;
+    width: 5vw;
+    height: 5vw;
     position: absolute;
     top: 10vw;
     left: 3vw;
     /* margin-top: 2vw; */
+    animation: growBall1 1s 1 ;
+    transition: all linear 1s;
 }
 .ball2 {
+    animation: growBall1 1s 1 ;
+    transition: all linear 1s;
     position: absolute;
     right: 5vw;
     /* background: linear-gradient(156.8deg,#fff 15%,#79b0e8 75.42%); */
@@ -96,4 +100,33 @@ nav {
     background: linear-gradient(37.94deg,rgba(16,8,74,0) 16.94%,#83a4ff 87.08%),#02021e;
     width: 4vw;
     height: 4vw;
+}
+
+h1 {
+    opacity: 1;
+    font-size: 3em;
+    animation: growText 1s 1 ;
+    transition: all linear 1s;
+}
+
+@keyframes growText {
+    0% {
+        opacity: 0;
+        transform: scale(0.75);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes growBall1 {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

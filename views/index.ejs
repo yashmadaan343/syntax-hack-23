@@ -39,28 +39,18 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Get ball elements
             const ball1 = document.querySelector('.ball1');
             const ball2 = document.querySelector('.ball2');
             
-            // Calculate the maximum movement distance
-            const maxDistance = 20;
+            const maxDistance =50;
             
-            // Add mousemove event listener to the document
             document.addEventListener('mousemove', function(event) {
-                // Calculate the distance from the cursor to the center of the page
                 const distanceX = event.clientX - window.innerWidth / 2;
                 const distanceY = event.clientY - window.innerHeight / 2;
-                
-                // Calculate the percentage of movement based on the maximum distance
                 const percentageX = (distanceX / window.innerWidth) * 100;
-                const percentageY = (distanceY / window.innerHeight) * 100;
-                
-                // Calculate the movement distance based on the percentage
+                const percentageY = (distanceY / window.innerHeight) * 100;                
                 const moveX = (percentageX / 100) * maxDistance;
-                const moveY = (percentageY / 100) * maxDistance;
-                
-                // Apply the movement to the balls
+                const moveY = (percentageY / 100) * maxDistance;                
                 ball1.style.transform = `translate(${moveX}px, ${moveY}px)`;
                 ball2.style.transform = `translate(${moveX}px, ${moveY}px)`;
             });
