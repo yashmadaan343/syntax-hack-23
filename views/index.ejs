@@ -13,6 +13,7 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat&family=Oleo+Script+Swash+Caps&family=Poppins:wght@500&display=swap" rel="stylesheet">
     <script defer src="https://kit.fontawesome.com/0f20a2b955.js" crossorigin="anonymous"></script>
+    
 </head>
 <body>
     <nav>
@@ -29,9 +30,42 @@
     </nav>
 
     <div class="container">
-        <p>Home</p>
+        <div class="landing">
+            <div class="ball1"></div>
+            <div class="ball2"></div>
+            <h1><span class="special-text">Lorem ipsum dolor, sit</span> amet consectetur <span class="special-text">adipisicing</span>.</h1>
+        </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get ball elements
+            const ball1 = document.querySelector('.ball1');
+            const ball2 = document.querySelector('.ball2');
+            
+            // Calculate the maximum movement distance
+            const maxDistance = 20;
+            
+            // Add mousemove event listener to the document
+            document.addEventListener('mousemove', function(event) {
+                // Calculate the distance from the cursor to the center of the page
+                const distanceX = event.clientX - window.innerWidth / 2;
+                const distanceY = event.clientY - window.innerHeight / 2;
+                
+                // Calculate the percentage of movement based on the maximum distance
+                const percentageX = (distanceX / window.innerWidth) * 100;
+                const percentageY = (distanceY / window.innerHeight) * 100;
+                
+                // Calculate the movement distance based on the percentage
+                const moveX = (percentageX / 100) * maxDistance;
+                const moveY = (percentageY / 100) * maxDistance;
+                
+                // Apply the movement to the balls
+                ball1.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                ball2.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+    </script>
 </body>
 
 </html>
