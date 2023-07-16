@@ -37,12 +37,15 @@
             <div class="donation">
                 <a>Donations</a>
             </div>
+            <div class="payment">
+                <a>Payment</a>
+            </div>
         </div>
     </div>
 
     <div class="container">
-        <!-- <div class="sizeContainer">
-            <h1 class="heading" style="font-size: 1.5rem; margin-left: 5vw;">Pick your locker's size:</h1>
+        <!-- <div class="sizeContainer" style="display: flex; align-items: center; flex-direction: column;">
+            <h1 class="heading" style="font-size: 1.5rem;">Pick your locker's size:</h1>
             <div class="size-buttons">
                 <div id="S" class="sizes"><a href="#S" class="sizeA">S</a></div>
                 <div id="M" class="sizes"><a href="#M" class="sizeA">M</a></div>
@@ -53,17 +56,45 @@
                 <a>Next</a>
             </div>
         </div> -->
-        <div class="sizeContainer">
-            <h1 class="heading" style="font-size: 1.5rem; margin-left: 40vw;">Pick an offer you like: </h1>
-
+        <!-- <div class="sizeContainer" style="display: flex; align-items: center; flex-direction: column;">
+            <h1 class="heading" style="font-size: 2rem; margin-bottom: 5vw;">Offers</h1>
+            <h1 class="heading" style="font-size: 1.5rem;">Pick an offer you like: </h1>
+            
             <div class="dropdown">
                 <button onclick="myFunction()" class="dropbtn">No festivals or offers now <br><i class="fa-solid fa-caret-down" style="color: #002c8d;"></i></button>
                 <div id="myDropdown" class="dropdown-content">
-                  <a href="#">No festivals or offers now</a>
+                    <a href="#">No festivals or offers now</a>
                 </div>
             </div>
-        </div>
-    </div>
+            <div class="next">
+                <a>Next</a>
+            </div> -->
+            <div class="sizeContainer" style="display: flex; align-items: center; flex-direction: column;">
+                
+                <h1 class="heading" style="font-size: 2rem; margin-bottom: 2vw; margin-top: -1.5vw;">Donations</h1>
+                <h1 class="heading quote" style="font-size: 1.5rem;">Always give without remembering and always receive without forgetting"</h1>
+
+                <form action="#" class="donate">
+                    <label>How much money do you want to donate (in rupees)?</label>
+                    <input class="money" type="number" placeholder="Enter the money to donate" >
+                </form>
+                <div class="next">
+                    <a>Next</a>
+                </div>
+            </div>
+            <!-- <div class="sizeContainer" style="display: flex; align-items: center; flex-direction: column;">
+                <h1 class="heading" style="font-size: 2rem;">Payment</h1>
+                
+                <form action="#" class="donate">
+                    <div class="card">
+                        <label>Card Number</label>
+                        <input class="money" type="number" placeholder="XXXX XXXX XXXX XXXX" >
+                    </div>
+                </form>
+                <div class="next">
+                    <a>Next</a>
+                </div>
+            </div> -->
 
     <form action="/locker/deposit/5" method="post">
         
