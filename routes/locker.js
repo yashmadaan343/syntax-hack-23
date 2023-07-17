@@ -75,14 +75,18 @@ router.post('/deposit', ensureAuthenticated, async (req, res)=>{
 })
 router.get('/:id', ensureAuthenticated, async (req, res)=>{
     let lockNum = req.params.id
-    let locker = await Locker.findOne({number: lockNum.toString()})
-    let user = await User.findOne({userId: req.user.userId})
-    let filledByUser = false
-    if(!locker) res.send("Locker not found")
-    else{
-        lockNumToStr = lockNum.toString()
-        if(user.lockers.includes(lockNumToStr)) filledByUser = true 
-        res.render("locker/locker", {locker, filledByUser})
+    if (!isNaN(parseFloat(lockNum)) && isFinite(lockNum)){
+        let locker = await Locker.findOne({number: parseInt(lockNum)})
+        let user = await User.findOne({userId: req.user.userId})
+        let filledByUser = false
+        if(!locker) res.send("Locker not found")
+        else{
+            lockNumToStr = lockNum.toString()
+            if(user.lockers.includes(lockNumToStr)) filledByUser = true 
+            res.render("locker/locker", {locker, filledByUser})
+        } 
+    }else{
+       res.send("No such locker found.")
     }
 })
 
