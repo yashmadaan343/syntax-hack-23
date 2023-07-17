@@ -4,6 +4,17 @@ const authToken = process.env.TWILIO_AUTH_TOKEN
 const twilioPhone = process.env.TWILIO_PHONE_NUMBER
 const client = require('twilio')(accountSid, authToken);
 
+
+function generateOTP() {
+    const digits = '0123456789';
+    let OTP = '';
+    for (let i = 0; i < 6; i++ ) {
+        OTP += digits[Math.floor(Math.random() * 10)];
+    }
+    return OTP;
+}
+  
+
 const router = require('express').Router()
 const Locker = require('../schemas/lockerSchema.js'),
     moment = require('moment'),
@@ -35,7 +46,7 @@ router.post('/deposit', ensureAuthenticated, async (req, res)=>{
                     regUserId: user.userId,
                     regName: user.name, 
                     phoneno: user.phoneno,
-                    code: nanoid(),
+                    code: generateOTP(),
                     regTime: dateStringWithTime
                 }, {new: true})
                 let doc2 = await User.findOneAndUpdate({userId: user.userId}, {
@@ -64,7 +75,7 @@ router.post('/deposit', ensureAuthenticated, async (req, res)=>{
 })
 router.get('/:id', ensureAuthenticated, async (req, res)=>{
     let lockNum = req.params.id
-    let locker = await Locker.findOne({number: lockNum})
+    let locker = await Locker.findOne({number: lockNum.toString()})
     let user = await User.findOne({userId: req.user.userId})
     let filledByUser = false
     if(!locker) res.send("Locker not found")
@@ -75,30 +86,36 @@ router.get('/:id', ensureAuthenticated, async (req, res)=>{
     }
 })
 
-router.post('/retrieve/:id', async (req, res)=>{
-
+router.post('/retrieve/:id', async (req, res)=>{    
     const lockerNum = req.params.id
-    let doc = await Locker.findOneAndUpdate({number: lockerNum}, {
-        filled: false,
-        regUserId: null,
-        regName: null, 
-        phoneno: null,
-        code: null,
-        regTime: null
-    }, {new: true})
-    let doc2 = await User.findOneAndUpdate({userId: req.user.userId}, {
-        $pull: { lockers: lockerNum } 
-    },{new: true}).then(()=> {
-        client.messages
-        .create({
-            body: 'test message',
-            from: twilioPhone,
-            to: req.user.phoneno
+    const locker = await Locker.findOne({number: lockerNum})
+    const code = locker.code
+    const {otp} = req.body
+    if(code == otp){
+        let doc = await Locker.findOneAndUpdate({number: lockerNum}, {
+            filled: false,
+            regUserId: null,
+            regName: null, 
+            phoneno: null,
+            code: null,
+            regTime: null
+        }, {new: true})
+        let doc2 = await User.findOneAndUpdate({userId: req.user.userId}, {
+            $pull: { lockers: lockerNum } 
+        },{new: true}).then(()=> {
+            // client.messages
+            // .create({
+            //     body: 'test message',
+            //     from: twilioPhone,
+            //     to: req.user.phoneno
+            // })
+            // .then(message => console.log(message.sid));
+        
+            res.send("Payment Page here")
         })
-        .then(message => console.log(message.sid));
-    
-        res.send("Payment Page here")
-    })
+    }else{
+        res.send("Wrong OTP entered")
+    }
 })
 
 module.exports = router;
