@@ -14,6 +14,8 @@
 <body>
     <%- include('../partials/navbar') %>
     <div class="reg-container">
+        <div class="ball1"></div>
+        <div class="ball2" style="top: 83vw;"></div>
         <div class="reg-form-container">
             <form action="/auth/register" method="post">
                 <h1>Register</h1>
@@ -50,5 +52,25 @@
 
         
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ball1 = document.querySelector('.ball1');
+            const ball2 = document.querySelector('.ball2');
+            
+            const maxDistance =50;
+            
+            document.addEventListener('mousemove', function(event) {
+                const distanceX = event.clientX - window.innerWidth / 2;
+                const distanceY = event.clientY - window.innerHeight / 2;
+                const percentageX = (distanceX / window.innerWidth) * 100;
+                const percentageY = (distanceY / window.innerHeight) * 100;                
+                const moveX = (percentageX / 100) * maxDistance;
+                const moveY = (percentageY / 100) * maxDistance;                
+                ball1.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                ball2.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+    </script>
 </body>
 </html>

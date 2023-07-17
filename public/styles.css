@@ -7,7 +7,7 @@ body {
     font-size: max(16px,.9rem);
     font-weight: 300;
     margin: 0;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     overflow-x: hidden;
     padding: 0;
     position: relative;
@@ -45,7 +45,7 @@ nav {
 
 .link {
     text-decoration: none;
-    color: hsla(0,0%,100%,.6);
+    color: #ffda93;
     font-size: 1.5rem;
     border: 2px solid transparent;
     border-radius: 5px;
@@ -61,24 +61,43 @@ nav {
 /* HOME STYLES */
 
 .container {
-    margin: 5vw 10vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
+    margin-top: 10vw;
 }
 
 .landing {
     font-size: 2em;
-    text-align: center;
+    display: flex;
+    margin-bottom: 10vw;
 }
+img {
+    width: 50vw;
+    height: 25vw;
+    position: absolute;
+    right: 5vw;
+    z-index: -10vw;
+}
+img {
+    animation: growText 1s 1 ;
+    transition: all linear 1s;
+    width: 35vw;
+    /* aspect-ratio: 1; */
+    border-radius: 20px;
+    transition: .5s;
+    cursor: pointer;
+    -webkit-mask: 
+      linear-gradient(135deg,#000c 40%,#000,#000c 60%)
+      100% 100%/250% 250%;
+  }
+  img:hover {
+    -webkit-mask-position: 0 0;
+  }
 
 .special-text {
     color: #ffda93;
 }
 
 .ball1 {
-    background: linear-gradient(156.8deg,#fff 15%,#79b0e8 75.42%);
+    background: linear-gradient(156.8deg,#fff 15%,#ffda93 75.42%);
     border-radius: 50%;
     /* background: linear-gradient(37.94deg,rgba(16,8,74,0) 16.94%,#83a4ff 87.08%),#02021e; */
     width: 5vw;
@@ -95,6 +114,8 @@ nav {
     transition: all linear 1s;
     position: absolute;
     right: 5vw;
+    margin-top: -7vw;
+    z-index: 20vw;
     /* background: linear-gradient(156.8deg,#fff 15%,#79b0e8 75.42%); */
     border-radius: 50%;
     background: linear-gradient(37.94deg,rgba(16,8,74,0) 16.94%,#83a4ff 87.08%),#02021e;
@@ -104,7 +125,10 @@ nav {
 
 h1 {
     opacity: 1;
-    font-size: 3em;
+    font-size: 2em;
+    align-self: flex-end;
+    margin-left: 5vw;
+    width: 50%;
     animation: growText 1s 1 ;
     transition: all linear 1s;
 }

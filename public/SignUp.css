@@ -9,9 +9,36 @@ body {
     align-items: center;
     width: 100%;
     height: fit-content;
+    margin-left: 2vw;
 } 
 
 /* #002c8d */
+
+.ball1 {
+    background: linear-gradient(156.8deg,#fff 15%,#ffda93 75.42%);
+    border-radius: 50%;
+    /* background: linear-gradient(37.94deg,rgba(16,8,74,0) 16.94%,#83a4ff 87.08%),#02021e; */
+    width: 8vw;
+    height: 8vw;
+    position: absolute;
+    top: 11vw;
+    left: 30vw;
+    /* margin-top: 2vw; */
+    animation: growBall1 1s 1 ;
+    transition: all linear 1s;
+}
+.ball2 {
+    animation: growBall1 1s 1 ;
+    transition: all linear 1s;
+    position: absolute;
+    top: 50vw;
+    right: 30vw;
+    /* background: linear-gradient(156.8deg,#fff 15%,#79b0e8 75.42%); */
+    border-radius: 50%;
+    background: linear-gradient(37.94deg,rgba(16,8,74,0) 16.94%,#83a4ff 87.08%),#02021e;
+    width: 8vw;
+    height: 8vw;
+}
 
 .reg-form-container {
     margin-top: 5vw;
@@ -20,10 +47,11 @@ body {
     justify-content: center;
     align-self: center;
     /* margin-left: 25vw; */
-    background-color: rgba(0, 44, 141, 0.15);
+    background-color: rgba(0, 44, 141, 0.2);
     backdrop-filter:blur(15px);
     border-radius: 5px;
     width: 30%;
+    /* margin-left: 10vw; */
     margin-bottom: 5vw;
     margin-right: 5vw;
 }

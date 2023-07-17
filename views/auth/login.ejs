@@ -18,6 +18,8 @@
     <%- include('../partials/navbar') %>
     
     <div class="reg-container">
+        <div class="ball1"></div>
+        <div class="ball2"></div>
         <div class="reg-form-container" style="margin-left: 30vw;">
             <form action="/auth/login" method="post">
                 <h1>Login</h1>
@@ -36,5 +38,25 @@
         <img src="/login.svg" alt="" style="width: 30vw;">
     </div>
     
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ball1 = document.querySelector('.ball1');
+            const ball2 = document.querySelector('.ball2');
+            
+            const maxDistance =50;
+            
+            document.addEventListener('mousemove', function(event) {
+                const distanceX = event.clientX - window.innerWidth / 2;
+                const distanceY = event.clientY - window.innerHeight / 2;
+                const percentageX = (distanceX / window.innerWidth) * 100;
+                const percentageY = (distanceY / window.innerHeight) * 100;                
+                const moveX = (percentageX / 100) * maxDistance;
+                const moveY = (percentageY / 100) * maxDistance;                
+                ball1.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                ball2.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+    </script>
 </body>
 </html>
