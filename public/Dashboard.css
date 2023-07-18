@@ -51,12 +51,20 @@ img {
     display: flex;
     /* width: 100%; */
     z-index: 100;
+    flex-direction: column;
     margin-top: 0vw;
     position: absolute;
     bottom: 5vw;
     align-self: center;
     left: 45%;
+    text-align: center;
     margin-bottom: 1vw;
+}
+
+.lockers-button {
+    position: absolute;
+    top: 8.5vw;
+    right: 3vw;
 }
 
 .logout2 {
@@ -66,6 +74,7 @@ img {
     padding: 1vw 1.5vw;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
+    /* margin-bottom: 2vw; */
 }
 
 .logout2:hover {
@@ -132,7 +141,7 @@ nav {
 
 .link {
     text-decoration: none;
-    color: hsla(0,0%,100%,.6) !important;
+    color: #ffda93 !important;
     font-size: 1.5rem;
     border: 2px solid transparent;
     border-radius: 5px;

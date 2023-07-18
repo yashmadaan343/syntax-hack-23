@@ -8,21 +8,80 @@
 <style>
     body{
         font-family:sans-serif;
+        color: #fff;
+        /* display: flex; */
+    }
+    .container {
+        display: flex;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .locker-card {
+        background-color: rgba(0, 0, 128, 0.3);
+        padding: 2vw 5vw;
+        display: flex;
+        gap: 5rem;
+        flex-direction: row;
+        border-radius: 30px;
+    }
+    form {
+        text-align: right;
+    }
+
+    input {
+        color: #fff;
+        /* margin-top: 1vw;  */
+        height: 3vw;
+        background-color: transparent;
+        border-bottom: solid 1px #fff !important;
+        border: none;
+        outline: none;
+        /* display: flex; */
+        width: 20vw;
+        margin-right: 2vw;
+    }
+    button {
+        font-family: 'Outfit';
+        padding: 0 1vw;
+        font-size: 1rem;
+        background-color: transparent;
+        color: #fff;
+        border: 2px solid;
+        border-radius: 5px;
+        border-color: #ffda93;
+        color: #fff;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.25s ease-in-out;
+    }
+
+    button:hover {
+        color: #ffda93;
     }
 </style>
 <body>
-    <h1>Your Lockers</h1>
-        <% lockers.forEach(locker => {%>
-                <div class="locker-card">
-                    <h1><%= locker.number %></h1>
-                    <h2><%= locker.size %></h2>
-                    <form action="/locker/retrieve/<%=locker.number%>" method="post">
-                        <h3>Enter Password sent to Registered Mobile Number</h3>
-                        <input type="password" name="otp" id="otp" placeholder="123456">
-                        <button type="submit"><h2 style="color: red;">Unlock</h2></button>
-                    </form>
-                </div>
-               <br>
-        <% }); %>
+    <%- include('../partials/navbar') %>
+
+    <div class="container">
+        <h1 style="color: #ffda93; font-size: 3rem;">Your Lockers</h1>
+            <% lockers.forEach(locker => {%>
+                    <div class="locker-card">
+                        <div class="creds">
+                            <h1>Locker No. <%= locker.number %></h1>
+                            <h2>Size: <%= locker.size %></h2>
+                        </div>
+                        <form action="/locker/retrieve/<%=locker.number%>" method="post">
+                            <h3>Enter Password sent to Registered Mobile Number</h3>
+                            <input type="text" name="otp" id="otp" placeholder="Enter password here">
+                            <button type="submit"><h2>Unlock</h2></button>
+                        </form>
+                    </div>
+                   <br>
+            <% }); %>
+    </div>
+
 </body>
 </html>

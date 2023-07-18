@@ -46,7 +46,7 @@ nav {
 
 .link {
     text-decoration: none;
-    color: hsla(0,0%,100%,.6);
+    color: #ffda93;
     font-size: 1.5rem;
     border: 2px solid transparent;
     border-radius: 5px;
