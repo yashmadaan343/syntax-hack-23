@@ -3,7 +3,8 @@ const accountSid = process.env.TWILIO_ACCOUNT_SID
 const authToken = process.env.TWILIO_AUTH_TOKEN
 const twilioPhone = process.env.TWILIO_PHONE_NUMBER
 const client = require('twilio')(accountSid, authToken);
-
+const stripe = require('stripe')(process.env.STRIPE_SECRET);
+const domain = process.env.HOSTNAME
 
 function generateOTP() {
     const digits = '0123456789';
@@ -61,27 +62,21 @@ router.post('/deposit', ensureAuthenticated, async (req, res)=>{
                 // })
                 // .then(message => console.log(message.sid));
                 // })
-                console.log(doc)
+                // console.log(doc)
                 break;
         }
         else if(i+1 == lockers.length){
             res.send("No Lockers Available in selected size.")
         }
       }
-    const phoneno = user.phoneno
-    // let doc = await Locker.findOneAndUpdate({number: lockerNum}, {
-    //     filled: true,
-    //     regUserId: user.userId,
-    //     regName: user.name, 
-    //     phoneno: user.phoneno,
-    //     code: nanoid(),
-    //     regTime: dateStringWithTime
-    // }, {new: true})
-    // let doc2 = await User.findOneAndUpdate({userId: user.userId}, {
-    //     $push: { lockers: lockerNum } 
-    // }, {new: true})
-    // console.log(doc2)
 })
+
+
+
+
+
+
+
 router.get('/:id', ensureAuthenticated, async (req, res)=>{
     let lockNum = req.params.id
     if (!isNaN(parseFloat(lockNum)) && isFinite(lockNum)){
@@ -114,14 +109,15 @@ router.post('/retrieve/:id', async (req, res)=>{
             regTime: null,
             momentDate: null
         }, {new: false})
-    
         let date1 = new Date()
         let date2 = new Date(parseInt(doc.regTime))
-        var hours = Math.abs(date1 - date2) / 36e5;
-        console.log(hours)   
+        var hours = Math.round(Math.abs(date1 - date2)) / 36e5;
         let doc2 = await User.findOneAndUpdate({userId: req.user.userId}, {
             $pull: { lockers: lockerNum } 
-        },{new: true}).then(()=> {
+        },{new: true}).then(async ()=> {
+
+            // let price = 
+            const jsonlock = JSON.parse(JSON.stringify(locker))
             // client.messages
             // .create({
             //     body: 'test message',
@@ -129,8 +125,19 @@ router.post('/retrieve/:id', async (req, res)=>{
             //     to: req.user.phoneno
             // })
             // .then(message => console.log(message.sid));
-        
-            res.send("Payment Page here")
+            
+            const session = await stripe.checkout.sessions.create({
+                line_items: [
+                  {
+                    price: jsonlock.price,
+                    quantity: 1 + parseInt(hours),
+                  },
+                ],
+                mode: 'payment',
+                success_url: `${domain}`,
+                cancel_url: `${domain}/deposit`,
+              });
+              res.redirect(303, session.url);
         })
     }else{
         res.send("Wrong OTP entered")
