@@ -19,7 +19,7 @@ const router = require('express').Router()
 const Locker = require('../schemas/lockerSchema.js'),
     moment = require('moment'),
     now = new Date(),
-    dateStringWithTime = moment(now).format('YYYY-MM-DD HH:MM:SS')
+    dateStringWithTime = moment(now, moment.ISO_8601)
 const { nanoid } = require("nanoid");
     
 const User = require('../schemas/userSchema.js');
@@ -38,7 +38,7 @@ router.get('/deposit', async (req, res)=>{
 router.post('/deposit', ensureAuthenticated, async (req, res)=>{
     let user = await User.findOne({userId: req.user.userId})
     const lockers = await Locker.find({size: req.body.size})
-    console.log(lockers)
+    const otp = generateOTP()
     for (let i = 0; i < lockers.length; i++) {
         if(lockers[i].filled == false){
                 let doc = await Locker.findOneAndUpdate({number: lockers[i].number}, {
@@ -46,12 +46,21 @@ router.post('/deposit', ensureAuthenticated, async (req, res)=>{
                     regUserId: user.userId,
                     regName: user.name, 
                     phoneno: user.phoneno,
-                    code: generateOTP(),
-                    regTime: dateStringWithTime
+                    code: otp,
+                    regTime: dateStringWithTime,
                 }, {new: true})
                 let doc2 = await User.findOneAndUpdate({userId: user.userId}, {
                     $push: { lockers: lockers[i].number } 
                 }, {new: true})
+                // .then(()=>{
+                // client.messages
+                // .create({
+                //     body: 'Your code for the locker is: ' + otp.toString(),
+                //     from: twilioPhone,
+                //     to: req.user.phoneno
+                // })
+                // .then(message => console.log(message.sid));
+                // })
                 console.log(doc)
                 break;
         }
@@ -102,8 +111,14 @@ router.post('/retrieve/:id', async (req, res)=>{
             regName: null, 
             phoneno: null,
             code: null,
-            regTime: null
-        }, {new: true})
+            regTime: null,
+            momentDate: null
+        }, {new: false})
+    
+        let date1 = new Date()
+        let date2 = new Date(parseInt(doc.regTime))
+        var hours = Math.abs(date1 - date2) / 36e5;
+        console.log(hours)   
         let doc2 = await User.findOneAndUpdate({userId: req.user.userId}, {
             $pull: { lockers: lockerNum } 
         },{new: true}).then(()=> {

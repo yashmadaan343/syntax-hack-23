@@ -10,7 +10,7 @@ const lockerSchema = new mongoose.Schema({
         regName: String, 
         phoneno: String,
         code: String,
-        regTime: String
+        regTime: String,
     })
     
 module.exports = mongoose.model("Locker", lockerSchema)
