@@ -22,185 +22,52 @@
 
     </nav>
     
-    <form action="/locker/deposit" method="post">
-            <input type="radio" id="size" name="size" value="S" checked="true">
-            <label for="size">Small</label><br>
-            <input type="radio" id="size" name="size" value="M">
-            <label for="size">Medium</label><br>
-            <input type="radio" id="size" name="size" value="L">
-            <label for="size">Large</label>
-            
-     <button type="submit">Rent Locker</button>
-    </form>
-
-
-    <div class="texts">
-        <h1 class="heading">Pick your locker: </h1>
-        <div class="links2">
-            <div class="size">
-                <a>Size</a>
-            </div>
-            <div class="offers">
-                <a>Offers</a>
-            </div>
-            <div class="donation">
-                <a>Donations</a>
-            </div>
-            <div class="payment">
-                <a>Payment</a>
-            </div>
-        </div>
+    <div class="imgs">
+        <svg class="image-locker" width="200" height="200" viewBox="0 0 1405 1183" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1375.25 1064.56H29.75C13.5825 1064.56 0.5 1051.47 0.5 1035.31V29.3301C0.5 13.1769 13.5825 0.0800781 29.75 0.0800781H1375.25C1391.42 0.0800781 1404.5 13.1769 1404.5 29.3301V1035.31C1404.5 1051.47 1391.42 1064.56 1375.25 1064.56ZM59 1006.06H1346V58.5801H59V1006.06Z" fill="black"/>
+            <path d="M1258.28 947.563H146.779C130.612 947.563 117.529 934.466 117.529 918.313V146.33C117.529 130.177 130.612 117.08 146.779 117.08H1258.28C1274.45 117.08 1287.53 130.177 1287.53 146.33V918.313C1287.53 934.466 1274.45 947.563 1258.28 947.563ZM176.029 889.063H1229.03V175.58H176.029V889.063Z" fill="black"/>
+            <path d="M333.276 434.117C276.375 434.117 230.072 387.814 230.072 330.899C230.072 273.985 276.375 227.682 333.276 227.682C390.205 227.682 436.508 273.985 436.508 330.899C436.508 387.814 390.205 434.117 333.276 434.117ZM333.276 286.182C308.625 286.182 288.572 306.248 288.572 330.899C288.572 355.55 308.625 375.617 333.276 375.617C357.927 375.617 378.008 355.55 378.008 330.899C378.008 306.248 357.927 286.182 333.276 286.182Z" fill="black"/>
+            <path d="M333.276 836.976C276.375 836.976 230.072 790.673 230.072 733.758C230.072 676.844 276.375 630.541 333.276 630.541C390.205 630.541 436.508 676.844 436.508 733.758C436.508 790.673 390.205 836.976 333.276 836.976ZM333.276 689.041C308.625 689.041 288.572 709.107 288.572 733.758C288.572 758.409 308.625 778.476 333.276 778.476C357.927 778.476 378.008 758.409 378.008 733.758C378.008 709.107 357.927 689.041 333.276 689.041Z" fill="black"/>
+            <path d="M333.276 689.04C317.109 689.04 304.026 675.943 304.026 659.79V404.867C304.026 388.714 317.109 375.617 333.276 375.617C349.444 375.617 362.526 388.714 362.526 404.867V659.79C362.526 675.943 349.444 689.04 333.276 689.04Z" fill="black"/>
+            <path d="M871.659 759.923C746.147 759.923 644.058 657.82 644.058 532.322C644.058 406.824 746.147 304.734 871.659 304.734C997.171 304.734 1099.26 406.824 1099.26 532.322C1099.26 657.82 997.171 759.923 871.659 759.923ZM871.659 363.234C778.425 363.234 702.558 439.087 702.558 532.322C702.558 625.57 778.425 701.423 871.659 701.423C964.894 701.423 1040.76 625.57 1040.76 532.322C1040.76 439.087 964.894 363.234 871.659 363.234Z" fill="black"/>
+            <path d="M871.659 642.923C810.674 642.923 761.058 593.306 761.058 532.321C761.058 471.336 810.674 421.72 871.659 421.72C932.644 421.72 982.261 471.336 982.261 532.321C982.261 593.306 932.644 642.923 871.659 642.923ZM871.659 480.22C842.923 480.22 819.558 503.585 819.558 532.321C819.558 561.057 842.923 584.423 871.659 584.423C900.395 584.423 923.761 561.057 923.761 532.321C923.761 503.585 900.395 480.22 871.659 480.22Z" fill="black"/>
+            <path d="M731.406 421.32C723.923 421.32 716.439 418.464 710.726 412.751L607.751 309.776C596.325 298.35 596.325 279.84 607.751 268.415C619.177 256.989 637.687 256.989 649.112 268.415L752.087 371.389C763.513 382.815 763.513 401.325 752.087 412.751C746.374 418.464 738.89 421.32 731.406 421.32Z" fill="black"/>
+            <path d="M1114.89 804.812C1107.4 804.812 1099.92 801.956 1094.2 796.243L991.229 693.254C979.804 681.828 979.804 663.304 991.229 651.892C1002.66 640.467 1021.17 640.467 1032.59 651.892L1135.57 754.881C1146.99 766.307 1146.99 784.831 1135.57 796.243C1129.85 801.956 1122.37 804.812 1114.89 804.812Z" fill="black"/>
+            <path d="M1011.91 421.32C1004.43 421.32 996.942 418.464 991.229 412.751C979.804 401.325 979.804 382.815 991.229 371.389L1094.2 268.415C1105.63 256.989 1124.14 256.989 1135.57 268.415C1146.99 279.84 1146.99 298.35 1135.57 309.776L1032.59 412.751C1026.88 418.464 1019.39 421.32 1011.91 421.32Z" fill="black"/>
+            <path d="M628.403 804.812C620.919 804.812 613.436 801.956 607.723 796.243C596.297 784.817 596.297 766.293 607.723 754.882L710.726 651.893C722.152 640.467 740.662 640.467 752.087 651.893C763.513 663.318 763.513 681.842 752.087 693.254L649.084 796.243C643.371 801.956 635.887 804.812 628.403 804.812Z" fill="black"/>
+            <path d="M261.521 1182.92H172.086C139.837 1182.92 113.586 1156.68 113.586 1124.42V1035.31C113.586 1019.16 126.668 1006.06 142.836 1006.06H290.771C306.939 1006.06 320.021 1019.16 320.021 1035.31V1124.42C320.021 1156.68 293.771 1182.92 261.521 1182.92ZM172.086 1064.56V1124.42H261.55L261.521 1064.56H172.086Z" fill="black"/>
+            <path d="M1232.94 1182.92H1143.51C1111.26 1182.92 1085.01 1156.68 1085.01 1124.42V1035.31C1085.01 1019.16 1098.09 1006.06 1114.26 1006.06H1262.19C1278.36 1006.06 1291.44 1019.16 1291.44 1035.31V1124.42C1291.44 1156.68 1265.19 1182.92 1232.94 1182.92ZM1143.51 1064.56V1124.42H1232.97L1232.94 1064.56H1143.51Z" fill="black"/>
+            </svg>
     </div>
-
+    
+    <div class="texts" style="margin-top: 5vw;">
+        <h1 class="heading">Pick your locker: </h1>
+    </div>
+    
     <div class="container">
-        <div class="sizeContainer" id="size">
-            <h1 class="heading" style="font-size: 1.5rem; margin-top: -1.5vw;">Pick your locker's size:</h1>
-            <div class="size-buttons">
-                <div id="S" class="sizes"><a href="#S" class="sizeA">S</a></div>
-                <div id="M" class="sizes"><a href="#M" class="sizeA">M</a></div>
-                <div id="L" class="sizes"><a href="#L" class="sizeA">L</a></div>
-                <div id="XL" class="sizes"><a href="#XL" class="sizeA">XL</a></div>
-            </div>
-            <div class="next">
-                <a>Next</a>
-            </div>
-        </div>
-        <div class="sizeContainer" id="offers">
-            <h1 class="heading" style="font-size: 2rem; margin-bottom: 5vw; margin-top: -1.5vw;">Offers</h1>
-            <h1 class="heading" style="font-size: 1.5rem;">Pick an offer you like: </h1>
-            
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">No festivals or offers now <br><i class="fa-solid fa-caret-down" style="color: #002c8d;"></i></button>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="#">No festivals or offers now</a>
+        <!-- <img src="C:/Users/bhavi/OneDrive/Desktop/New Project (1).png" alt=""> -->
+        <form action="/locker/deposit" method="post">
+            <div class="radios">
+                <div class="radio">
+                    <input type="radio" class="input-radio small" id="size" name="size" value="S" checked="true">
+                    <label for="size">Small (₹20/hr)</label><br>
+                </div>
+                <div class="radio">
+                    <input type="radio" class="input-radio medium" id="size" name="size" value="M">
+                    <label for="size">Medium (₹40/hr)</label><br>
+                </div>
+                <div class="radio">
+                    <input type="radio" class="input-radio large" id="size" name="size" value="L">
+                    <label for="size">Large (₹50/hr)</label>
                 </div>
             </div>
-            <div class="next">
-                <a>Next</a>
-            </div>
-
-        </div>
-            <div class="sizeContainer" id="donation">
-                
-                <h1 class="heading" style="font-size: 2rem; margin-bottom: 2vw; margin-top: -1.5vw;">Donations</h1>
-                <h1 class="heading quote" style="font-size: 1.5rem;">Always give without remembering and always receive without forgetting"</h1>
-
-                <form action="#" class="donate">
-                    <label>How much money do you want to donate (in rupees)?</label>
-                    <input class="money" type="number" placeholder="Enter the money to donate" >
-                </form>
-                <div class="next">
-                    <a>Next</a>
-                </div>
-            </div>
-            <div class="sizeContainer" id="payment">
-                <h1 class="heading" style="font-size: 2rem; margin-top: -1.5vw;">Payment</h1>
-                
-                <form action="#" class="donate">
-                    <div class="card">
-                        <label>Card Number</label>
-                        <input class="money" type="number" placeholder="XXXX XXXX XXXX XXXX" style="margin-bottom: 2vw;" >
-                        <label>Name</label>
-                        <input class="money" type="text" placeholder="Jon Doe" style="margin-bottom: 2vw;" >
-                        <label>Expiry</label>
-                        <input class="money" type="text" placeholder="02/06" >
-                    </div>
-                </form>
-                <div class="next">
-                    <a onclick="goNext">Pay</a>
-                </div>
-            </div>
+                <br>
+         <button type="submit" class="button">Rent Locker</button>
+        </form>
+    </div>
         
 
         <form action="/locker/deposit/5" method="post"></form>
 
-    <script>
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
-        
-        const sizeLink = document.querySelector('.size');
-        const sizeContainer = document.getElementById('size');
-        
-        const offerLink = document.querySelector('.offers');
-        const offerContainer = document.getElementById('offers');
-
-        const donationLink = document.querySelector('.donation');
-        const donationContainer = document.getElementById('donation');
-        
-        const paymentLink = document.querySelector('.payment');
-        const paymentConatainer = document.getElementById('payment');
-
-        sizeLink.addEventListener('click', size)
-        function size(){
-            sizeContainer.style.display = "flex";
-            offerContainer.style.display = "none";
-            paymentConatainer.style.display = "none";
-            donationContainer.style.display = "none";
-            
-            sizeLink.classList.add("active");
-            offerLink.classList.remove("active");
-            donationLink.classList.remove("active");
-            paymentLink.classList.remove("active");
-        };
-
-        offerLink.addEventListener('click', offer)
-        function offer (){
-            offerContainer.style.display = "flex";
-            sizeContainer.style.display = "none";
-            paymentConatainer.style.display = "none";
-            donationContainer.style.display = "none";
-
-            offerLink.classList.add("active");
-            sizeLink.classList.remove("active");
-            donationLink.classList.remove("active");
-            paymentLink.classList.remove("active");
-        };
-
-        donationLink.addEventListener('click', donation)
-        function donation () {
-            donationContainer.style.display = "flex";
-            offerContainer.style.display = "none";
-            paymentConatainer.style.display = "none";
-            sizeContainer.style.display = "none";
-
-            donationLink.classList.add("active");
-            offerLink.classList.remove("active");
-            sizeLink.classList.remove("active");
-            paymentLink.classList.remove("active");
-        };
-
-        paymentLink.addEventListener('click',payment)
-        function payment () {
-            paymentConatainer.style.display = "flex";
-            offerContainer.style.display = "none";
-            sizeContainer.style.display = "none";
-            donationContainer.style.display = "none";
-
-            paymentLink.classList.add("active");
-            offerLink.classList.remove("active");
-            sizeLink.classList.remove("active");
-            donationLink.classList.remove("active");
-        };
-
-
-        const nextButton = document.getElementsByClassName('next');
-
-        nextButton.addEventListener('click', goNext)
-
-        function goNext() {
-            if (sizeLink.classList.contains('active')) {
-                offer()
-            }
-            if (offerLink.classList.contains('active')) {
-                donation()
-            }
-            if (donationLink.classList.contains('active')) {
-                payment()
-            }
-            
-        }
-
-    </script>
 </body>
 </html>

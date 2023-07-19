@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Outfit';
+    background: 50%/contain url("https://www.halo-lab.com/cdn-cgi/image/anim=true,dpr=1,format=auto,quality=85/cloudflare-images/universe.f742a005ecd.png?66d5e0a3733") #02021e;
+    font-size: max(16px,.9rem);
+    font-weight: 300;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 0;
+    position: relative;
+    color: #fff;
+    
+}
+
+nav {
+    height: 7.5vw;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-right: 2vw;
+    list-style: none;
+}
+
+.loginUl {
+    list-style-type: none;
+    margin-right: 5vw;
+}
+
+.logo {
+    margin-left: 5vw;
+    font-size: 2rem;
+}
+
+.link {
+    text-decoration: none;
+    color: #ffda93;
+    font-size: 1.5rem;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.link:hover {
+    border: 2px solid;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    aspect-ratio: 1;
+    width: 10vw;
+}
