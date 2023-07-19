@@ -10,6 +10,17 @@
         font-family:sans-serif;
         color: #fff;
         /* display: flex; */
+        animation: fadeIn 1s 1;
+    }
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(auto);
+        }
     }
     .container {
         display: flex;
