@@ -69,7 +69,7 @@ router.post('/deposit', ensureAuthenticated, async (req, res)=>{
                     to: user.email,
                     subject: "SoleSeva OTP",
                     text: `Thank you for using SoleSeva
-                    Your OTP is: ${otp.toString()}
+Your OTP for Locker Number ${doc.number} is: ${otp.toString()}
                     `,
                    
                 }
