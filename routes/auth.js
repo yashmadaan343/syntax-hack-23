@@ -15,9 +15,9 @@ router.get('/register', forwardAuthenticated, (req, res) => {
 
 router.post('/register', async (req, res) => {
   let errors = [];
-  const { name, email, password, confirmPassword, city, phoneno } = req.body;
+  const { name, password, confirmPassword, phoneno } = req.body;
 
-  if (!name || !email || !password || !city || !phoneno) {
+  if (!name || !password || !phoneno) {
     errors.push({ msg: "All fields are required" })
   };
   if (password != confirmPassword) {
@@ -27,7 +27,7 @@ router.post('/register', async (req, res) => {
     res.send(errors);
   } else {
 
-    User.findOne({ email: email }).then((user) => {
+    User.findOne({ phoneno: phoneno }).then((user) => {
       if (user) {
         errors.push({ msg: "User already exists, try logging in instead." })
         return res.send(errors)
@@ -35,10 +35,8 @@ router.post('/register', async (req, res) => {
       const userId = uuid();
       const newUser = new User({
         name: name,
-        email: email,
         password: password,
         userId: userId,
-        location: city,
         phoneno: phoneno,
       });
       bcrypt.genSalt(10, (err, salt) =>

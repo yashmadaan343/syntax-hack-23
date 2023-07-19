@@ -5,12 +5,12 @@ const passportLocal = require('passport-local'),
 
 module.exports = function passportInit(passport) {
   passport.use(
-    new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+    new LocalStrategy({ usernameField: 'phoneno' }, (phoneno, password, done) => {
       User.findOne({
-        email: email
+        phoneno: phoneno
       }).then(user => {
         if (!user) {
-          return done(null, false, { message: 'That email is not registered' });
+          return done(null, false, { message: 'That phone number is not registered' });
         }
 
         bcrypt.compare(password, user.password, (err, isMatch) => {
