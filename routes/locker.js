@@ -36,6 +36,7 @@ router.get('/deposit', async (req, res)=>{
 
 
 
+
 router.post('/deposit', ensureAuthenticated, async (req, res)=>{
     let user = await User.findOne({userId: req.user.userId})
     const lockers = await Locker.find({size: req.body.size})
@@ -62,7 +63,7 @@ router.post('/deposit', ensureAuthenticated, async (req, res)=>{
                 // })
                 // .then(message => console.log(message.sid));
                 // })
-                // console.log(doc)
+                console.log(doc)
                 break;
         }
         else if(i+1 == lockers.length){

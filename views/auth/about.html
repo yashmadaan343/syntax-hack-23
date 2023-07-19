@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit</title>
+    <link rel="stylesheet" href="../../public/confirmation copy.css">
+    <script src="https://kit.fontawesome.com/0f20a2b955.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav>
+        <label class="logo">NAME</label>
+        <ul class="links">
+            <li><a href="/" class="link">Home</a></li>
+            <li><a href="#" class="link">About</a></li>
+            <li><a href="/dashboard" class="link">Dashboard</a></li>
+        </ul>
+        <ul class="loginUl">
+            <li><a href="/auth/logout" class="link">Logout</a></li>
+        </ul>
+
+    </nav>
+    
+    <div class="container">
+        <div class="headings">
+            <h1 class="animate-h1 special-text">ABOUT US</h1>
+            <div class="texts">
+                <h2 class="animate-heading">WE LIVE BY THE CODE OF PASSION</h2>
+                <div class="line animated-line"></div>
+            </div>
+        </div>
+        <img class="gurudwara-img" src="https://images.unsplash.com/photo-1609947017136-9daf32a5eb16?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3VydWR3YXJhfGVufDB8fDB8fHww&w=1000&q=80" alt="">
+        <h1 class="animate-h1 text-below-img">
+            <span class="special-text">Lorem ipsum dolor sit, amet consectetur</span> adipisicing elit. Mollitia, vitae!
+        </h1>
+    </div>
+
+
+    <footer class="footer">
+        <ul class="social-icons">
+          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          <!-- Add more social media icons here -->
+        </ul>
+        <p>NAME<sup>©</sup></p>
+      </footer>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const line = document.querySelector(".animated-line");
+    const heading = document.querySelector(".animate-heading");
+    const container = document.querySelector(".container");
+    const containerTop = container.offsetTop + container.offsetHeight;
+
+    line.style.width = "40vw";
+
+    line.addEventListener("transitionend", () => {
+        heading.style.opacity = "1";
+        heading.style.transform = "translateY(0)";
+    });
+    });
+
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</body>
+</html>

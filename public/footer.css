@@ -1,0 +1,37 @@
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 40px 20px 20px 20px;
+    display: flex;
+    flex-direction: column; /* Updated: Set the flex direction to column */
+    align-items: center; /* Optional: Center the social icons horizontally */
+}
+
+.social-icons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.social-icons li {
+    margin: 0 10px;
+}
+
+.social-icons a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    text-align: center;
+    line-height: 30px;
+    color: #000;
+    font-size: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: #333;
+    color: #fff;
+}
