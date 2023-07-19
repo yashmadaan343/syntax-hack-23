@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: uuid()
     },
+    email: reqString,
     name: reqString,
     password: reqString,
     phoneno: reqString,

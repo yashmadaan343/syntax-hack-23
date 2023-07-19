@@ -5,7 +5,7 @@ const twilioPhone = process.env.TWILIO_PHONE_NUMBER
 const client = require('twilio')(accountSid, authToken);
 const stripe = require('stripe')(process.env.STRIPE_SECRET);
 const domain = process.env.HOSTNAME
-
+const nodemailer = require('nodemailer')
 function generateOTP() {
     const digits = '0123456789';
     let OTP = '';
@@ -14,7 +14,9 @@ function generateOTP() {
     }
     return OTP;
 }
-  
+
+
+
 
 const router = require('express').Router()
 const Locker = require('../schemas/lockerSchema.js'),
@@ -38,7 +40,7 @@ router.get('/deposit', async (req, res)=>{
 
 
 router.post('/deposit', ensureAuthenticated, async (req, res)=>{
-    let user = await User.findOne({userId: req.user.userId})
+    const user = await User.findOne({userId: req.user.userId})
     const lockers = await Locker.find({size: req.body.size})
     const otp = generateOTP()
     for (let i = 0; i < lockers.length; i++) {
@@ -55,14 +57,41 @@ router.post('/deposit', ensureAuthenticated, async (req, res)=>{
                     $push: { lockers: lockers[i].number } 
                 }, {new: true})
                 .then(()=>{
-                client.messages
-                .create({
-                    body: 'Your code for the locker is: ' + otp.toString(),
-                    from: twilioPhone,
-                    to: req.user.phoneno
+                // client.messages
+                // .create({
+                //     body: 'Your code for the locker is: ' + otp.toString(),
+                //     from: twilioPhone,
+                //     to: req.user.phoneno
+                // })
+
+                const message = {
+                    from: "yash.madaan@ais.amity.edu",
+                    to: user.email,
+                    subject: "SoleSeva OTP",
+                    text: `Thank you for using SoleSeva
+Your OTP for Locker Number ${doc.number} is: ${otp.toString()}
+                    `,
+                   
+                }
+                    const transporter = nodemailer.createTransport({
+                        service:'hotmail',
+                        auth:{
+                            user: process.env.EMAIL,
+                            pass: process.env.EMAIL_PASS
+                        }
+                    })
+                    transporter.sendMail(message, function(err, info){
+                        if(err){
+                            console.log(err)
+                            return;
+                        }else{
+                            res.redirect('/confirmation')
+                        }
+                        console.log(info.response)
+                    });
                 })
-                .then(res.redirect('/confirmation'));
-                })
+                
+                
                 console.log(doc)
                 break;
         }
@@ -119,13 +148,13 @@ router.post('/retrieve/:id', async (req, res)=>{
 
             // let price = 
             const jsonlock = JSON.parse(JSON.stringify(locker))
-            client.messages
-            .create({
-                body: `Items were taken out from your locker, if this was not you please contact us at XXXXXXXXXX`,
-                from: twilioPhone,
-                to: req.user.phoneno
-            })
-            .then(message => console.log(message.sid));
+            // client.messages
+            // .create({
+            //     body: `Items were taken out from your locker, if this was not you please contact us at XXXXXXXXXX`,
+            //     from: twilioPhone,
+            //     to: req.user.phoneno
+            // })
+            // .then(message => console.log(message.sid));
             
             const session = await stripe.checkout.sessions.create({
                 line_items: [

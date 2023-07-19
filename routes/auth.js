@@ -15,9 +15,9 @@ router.get('/register', forwardAuthenticated, (req, res) => {
 
 router.post('/register', async (req, res) => {
   let errors = [];
-  const { name, password, confirmPassword, phoneno } = req.body;
+  const { name, password, confirmPassword, phoneno, email } = req.body;
 
-  if (!name || !password || !phoneno) {
+  if (!name || !password || !phoneno, !email) {
     errors.push({ msg: "All fields are required" })
   };
   if (password != confirmPassword) {
@@ -27,13 +27,14 @@ router.post('/register', async (req, res) => {
     res.send(errors);
   } else {
 
-    User.findOne({ phoneno: phoneno }).then((user) => {
+    User.findOne({ email:email }).then((user) => {
       if (user) {
         errors.push({ msg: "User already exists, try logging in instead." })
         return res.send(errors)
       }
       const userId = uuid();
       const newUser = new User({
+        email:email,
         name: name,
         password: password,
         userId: userId,
