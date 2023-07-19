@@ -193,3 +193,34 @@ nav {
     background-color: #333;
     color: #fff;
   }
+
+.whyus-container {
+    margin-top: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7.5vw;
+}
+
+.reason1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+}
+
+.whyus-container h2 {
+    width: 60%;
+}
+
+.img-whyus  {
+    aspect-ratio: 1;
+    width: 20vw;
+    border-radius: 15px;
+}
+
+.aspect-none {
+    aspect-ratio: unset !important;
+}
