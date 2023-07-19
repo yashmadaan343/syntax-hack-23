@@ -77,6 +77,12 @@ app.use('/dashboard', dashboard)
 app.use('/auth', auth)
 app.use('/locker', locker)
 
+app.get('/confirmation', (req, res)=>{
+    res.render('confirmation')
+})
+app.get('/about', (req, res)=>{
+    res.render('about')
+})
 
 //listen
 const PORT = process.env.PORT || 5000

@@ -54,15 +54,15 @@ router.post('/deposit', ensureAuthenticated, async (req, res)=>{
                 let doc2 = await User.findOneAndUpdate({userId: user.userId}, {
                     $push: { lockers: lockers[i].number } 
                 }, {new: true})
-                // .then(()=>{
-                // client.messages
-                // .create({
-                //     body: 'Your code for the locker is: ' + otp.toString(),
-                //     from: twilioPhone,
-                //     to: req.user.phoneno
-                // })
-                // .then(message => console.log(message.sid));
-                // })
+                .then(()=>{
+                client.messages
+                .create({
+                    body: 'Your code for the locker is: ' + otp.toString(),
+                    from: twilioPhone,
+                    to: req.user.phoneno
+                })
+                .then(res.redirect('/confirmation'));
+                })
                 console.log(doc)
                 break;
         }
@@ -119,13 +119,13 @@ router.post('/retrieve/:id', async (req, res)=>{
 
             // let price = 
             const jsonlock = JSON.parse(JSON.stringify(locker))
-            // client.messages
-            // .create({
-            //     body: 'test message',
-            //     from: twilioPhone,
-            //     to: req.user.phoneno
-            // })
-            // .then(message => console.log(message.sid));
+            client.messages
+            .create({
+                body: `Items were taken out from your locker, if this was not you please contact us at XXXXXXXXXX`,
+                from: twilioPhone,
+                to: req.user.phoneno
+            })
+            .then(message => console.log(message.sid));
             
             const session = await stripe.checkout.sessions.create({
                 line_items: [
