@@ -12,7 +12,11 @@ body {
     padding: 0;
     position: relative;
     color: #fff;
-    
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
 }
 
 nav {

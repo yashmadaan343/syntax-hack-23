@@ -14,6 +14,11 @@ body {
     color: #fff;
 }
 
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
 nav {
     height: 7.5vw;
     color: #fff;
@@ -125,7 +130,7 @@ img {
 
 h1 {
     opacity: 1;
-    font-size: 2em;
+    font-size: 1.75em;
     align-self: flex-end;
     margin-left: 5vw;
     width: 50%;

@@ -15,6 +15,11 @@ body {
     animation: fadeIn 1s 1;
 }
 
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

@@ -4,6 +4,11 @@ body {
     color: #fff;
 }
 
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
 /* background: linear-gradient(to right,#ae8625, #f7ef8a, #d2ac47, #edc967); */
 
 

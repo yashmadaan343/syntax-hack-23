@@ -10,8 +10,12 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     padding: 0;
-    position: relative;
-    
+    position: relative; 
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
 }
 
 nav {
