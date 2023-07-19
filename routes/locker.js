@@ -1,3 +1,4 @@
+require("dotenv").config()
 const { ensureAdminAuthenticated, ensureAuthenticated } = require('../middleware/authenticate');
 const accountSid = process.env.TWILIO_ACCOUNT_SID
 const authToken = process.env.TWILIO_AUTH_TOKEN
