@@ -9,7 +9,7 @@ const User = require('../schemas/userSchema.js'),
 
 //register
 router.get('/register', forwardAuthenticated, (req, res) => {
-  res.render('auth/register', {user: req.user})
+  res.render('auth/register', {user: req.user, messages:req.flash()})
 })
 
 
@@ -29,8 +29,8 @@ router.post('/register', async (req, res) => {
 
     User.findOne({ email:email }).then((user) => {
       if (user) {
-        errors.push({ msg: "User already exists, try logging in instead." })
-        return res.send(errors)
+        req.flash('error', 'User already exists, try logging in instead.')
+        return res.redirect('/auth/register')
       }
       const userId = uuid();
       const newUser = new User({

@@ -9,16 +9,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat&family=Oleo+Script+Swash+Caps&family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body>
     <%- include('../partials/navbar') %>
+
+    <% if(messages.error){ %>
+        <% alert(messages.error)  %>
+    <% } %>
     <div class="reg-container">
         <div class="ball1"></div>
         <div class="ball2" style="top: 70vw;"></div>
         <div class="reg-form-container">
+            
             <form action="/auth/register" method="post">
                 <h1>Register</h1>
+                
                 <div class="field">
                     <label for="email">Email</label>
                     <input type="text" name="email" id="email" placeholder="test@gmail.com" required>
@@ -48,6 +55,7 @@
 
         
     </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

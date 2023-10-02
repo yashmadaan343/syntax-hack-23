@@ -17,8 +17,6 @@ function generateOTP() {
 }
 
 
-
-
 const router = require('express').Router()
 const Locker = require('../schemas/lockerSchema.js'),
     moment = require('moment'),

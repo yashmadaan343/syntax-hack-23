@@ -11,6 +11,7 @@ const ejs  = require('ejs');
 const cors = require('cors');
 const passportInit = require('./middleware/passport.js')
 var server = require('http').createServer(app);
+const flash = require('express-flash')
 
 //file imports
 const landing = require('./routes/landing')
@@ -38,6 +39,7 @@ app.use(cors(corsOptions))
 //middlewares
 app.use(express.json({ limit: '50mb' }), express.urlencoded({ extended: true, limit: '50mb' }))
 app.use(express.static('public'))
+app.use(flash())
 // app.use(ejsLayouts)
 
 app.set('view engine', 'ejs')
